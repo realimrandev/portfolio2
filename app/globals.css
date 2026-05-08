@@ -1,0 +1,337 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   THEME VARIABLES
+   Each `.theme-*` class on <html> remixes accents, background,
+   midnight-deep, body gradient and scrollbar colors in real time.
+   `--accent` / `--accent-2` are HSL triplets so Tailwind's
+   <alpha-value> placeholder (used for emerald-glow/40 etc.) works.
+   ============================================================ */
+@layer base {
+  :root,
+  .theme-forest {
+    --background: 158 47% 5%;
+    --foreground: 150 10% 96%;
+    --card: 158 40% 7%;
+    --card-foreground: 150 10% 96%;
+    --popover: 158 40% 5%;
+    --popover-foreground: 150 10% 96%;
+    --primary: 159 90% 58%;
+    --primary-foreground: 158 70% 6%;
+    --secondary: 160 30% 12%;
+    --secondary-foreground: 150 10% 96%;
+    --muted: 160 18% 14%;
+    --muted-foreground: 150 6% 65%;
+    --accent: 159 90% 58%;         /* #34f5b6 emerald-glow */
+    --accent-foreground: 150 10% 96%;
+    --accent-2: 22 100% 62%;       /* #ff8a3d sunset */
+    --accent-2-glow: 24 100% 74%;  /* #ffb37a sunset-glow */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 150 10% 96%;
+    --border: 160 20% 18%;
+    --input: 160 20% 18%;
+    --ring: 159 90% 58%;
+    --radius: 1rem;
+
+    --bg-deep: 158 60% 3%;        /* midnight.deep */
+    --bg-mid: 212 50% 8%;         /* midnight */
+
+    --grad-1: rgba(52, 245, 182, 0.15);
+    --grad-2: rgba(255, 138, 61, 0.06);
+    --grad-3: rgba(16, 185, 129, 0.10);
+    --selection: rgba(52, 245, 182, 0.30);
+    --scroll-thumb: rgba(52, 245, 182, 0.22);
+    --scroll-thumb-hover: rgba(52, 245, 182, 0.45);
+  }
+
+  .theme-aurora {
+    --background: 245 55% 5%;
+    --foreground: 220 20% 96%;
+    --card: 245 45% 8%;
+    --card-foreground: 220 20% 96%;
+    --popover: 245 50% 6%;
+    --popover-foreground: 220 20% 96%;
+    --primary: 195 100% 70%;
+    --primary-foreground: 245 80% 6%;
+    --secondary: 250 30% 14%;
+    --secondary-foreground: 220 20% 96%;
+    --muted: 250 24% 14%;
+    --muted-foreground: 230 12% 70%;
+    --accent: 195 100% 70%;        /* cyan */
+    --accent-foreground: 220 20% 96%;
+    --accent-2: 275 95% 72%;       /* violet */
+    --accent-2-glow: 290 95% 80%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 20% 96%;
+    --border: 250 25% 20%;
+    --input: 250 25% 20%;
+    --ring: 195 100% 70%;
+    --radius: 1rem;
+
+    --bg-deep: 250 70% 4%;
+    --bg-mid: 245 60% 7%;
+
+    --grad-1: rgba(122, 234, 255, 0.22);
+    --grad-2: rgba(185, 133, 255, 0.16);
+    --grad-3: rgba(102, 245, 197, 0.10);
+    --selection: rgba(122, 234, 255, 0.35);
+    --scroll-thumb: rgba(185, 133, 255, 0.30);
+    --scroll-thumb-hover: rgba(185, 133, 255, 0.55);
+  }
+
+  .theme-sunset {
+    --background: 15 55% 5%;
+    --foreground: 30 25% 96%;
+    --card: 15 45% 8%;
+    --card-foreground: 30 25% 96%;
+    --popover: 15 50% 6%;
+    --popover-foreground: 30 25% 96%;
+    --primary: 22 100% 62%;
+    --primary-foreground: 15 80% 8%;
+    --secondary: 15 35% 14%;
+    --secondary-foreground: 30 25% 96%;
+    --muted: 15 25% 14%;
+    --muted-foreground: 25 15% 72%;
+    --accent: 22 100% 62%;         /* amber */
+    --accent-foreground: 30 25% 96%;
+    --accent-2: 348 90% 62%;       /* coral-red */
+    --accent-2-glow: 10 100% 72%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 30 25% 96%;
+    --border: 15 30% 20%;
+    --input: 15 30% 20%;
+    --ring: 22 100% 62%;
+    --radius: 1rem;
+
+    --bg-deep: 15 70% 3%;
+    --bg-mid: 10 55% 7%;
+
+    --grad-1: rgba(255, 138, 61, 0.26);
+    --grad-2: rgba(255, 72, 101, 0.14);
+    --grad-3: rgba(255, 179, 122, 0.14);
+    --selection: rgba(255, 138, 61, 0.40);
+    --scroll-thumb: rgba(255, 138, 61, 0.32);
+    --scroll-thumb-hover: rgba(255, 138, 61, 0.55);
+  }
+
+  .theme-ocean {
+    --background: 215 60% 5%;
+    --foreground: 200 25% 96%;
+    --card: 215 50% 8%;
+    --card-foreground: 200 25% 96%;
+    --popover: 215 55% 6%;
+    --popover-foreground: 200 25% 96%;
+    --primary: 195 100% 65%;
+    --primary-foreground: 215 80% 8%;
+    --secondary: 215 35% 14%;
+    --secondary-foreground: 200 25% 96%;
+    --muted: 215 25% 14%;
+    --muted-foreground: 205 15% 72%;
+    --accent: 195 100% 65%;        /* cyan */
+    --accent-foreground: 200 25% 96%;
+    --accent-2: 220 90% 65%;       /* deep sky blue */
+    --accent-2-glow: 210 100% 75%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 200 25% 96%;
+    --border: 215 30% 20%;
+    --input: 215 30% 20%;
+    --ring: 195 100% 65%;
+    --radius: 1rem;
+
+    --bg-deep: 215 75% 3%;
+    --bg-mid: 215 65% 6%;
+
+    --grad-1: rgba(90, 215, 255, 0.22);
+    --grad-2: rgba(59, 130, 246, 0.14);
+    --grad-3: rgba(30, 58, 138, 0.20);
+    --selection: rgba(90, 215, 255, 0.36);
+    --scroll-thumb: rgba(90, 215, 255, 0.30);
+    --scroll-thumb-hover: rgba(90, 215, 255, 0.55);
+  }
+
+  .theme-cosmos {
+    --background: 270 50% 4%;
+    --foreground: 290 20% 96%;
+    --card: 270 45% 7%;
+    --card-foreground: 290 20% 96%;
+    --popover: 270 50% 5%;
+    --popover-foreground: 290 20% 96%;
+    --primary: 290 100% 75%;
+    --primary-foreground: 270 80% 6%;
+    --secondary: 275 35% 14%;
+    --secondary-foreground: 290 20% 96%;
+    --muted: 275 25% 14%;
+    --muted-foreground: 285 12% 72%;
+    --accent: 290 100% 75%;        /* magenta */
+    --accent-foreground: 290 20% 96%;
+    --accent-2: 330 90% 65%;       /* pink */
+    --accent-2-glow: 320 100% 80%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 290 20% 96%;
+    --border: 275 30% 22%;
+    --input: 275 30% 22%;
+    --ring: 290 100% 75%;
+    --radius: 1rem;
+
+    --bg-deep: 270 70% 3%;
+    --bg-mid: 275 60% 6%;
+
+    --grad-1: rgba(224, 120, 255, 0.22);
+    --grad-2: rgba(255, 107, 200, 0.16);
+    --grad-3: rgba(155, 93, 229, 0.16);
+    --selection: rgba(224, 120, 255, 0.40);
+    --scroll-thumb: rgba(224, 120, 255, 0.32);
+    --scroll-thumb-hover: rgba(224, 120, 255, 0.58);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, var(--grad-1), transparent 60%),
+      radial-gradient(ellipse 60% 80% at 100% 50%, var(--grad-2), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 0% 100%, var(--grad-3), transparent 60%),
+      hsl(var(--background));
+    overflow-x: hidden;
+    transition:
+      background-color 700ms ease,
+      color 500ms ease;
+  }
+
+  ::selection {
+    background: var(--selection);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-thumb-hover);
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    html,
+    body,
+    a,
+    button,
+    [role="button"] {
+      cursor: none;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .glass {
+    @apply border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+  }
+  .glass-strong {
+    @apply border border-white/15 bg-white/[0.06] backdrop-blur-2xl;
+  }
+  /* Theme-aware gradients: drive off CSS vars so every theme gets its own identity. */
+  .gradient-emerald {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--accent)) 0%,
+      hsl(var(--accent) / 0.75) 50%,
+      hsl(var(--accent-2) / 0.8) 100%
+    );
+  }
+  .gradient-text {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--accent)),
+      hsl(var(--accent-2-glow)),
+      hsl(var(--accent-2))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .gradient-text-sunset {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--accent-2)),
+      hsl(var(--accent-2-glow))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .theme-ring {
+    box-shadow: 0 0 0 1px hsl(var(--accent) / 0.35),
+      0 0 40px -6px hsl(var(--accent) / 0.35);
+  }
+  .noise {
+    position: relative;
+  }
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes theme-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 16px hsl(var(--accent) / 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 28px hsl(var(--accent) / 0.7));
+  }
+}

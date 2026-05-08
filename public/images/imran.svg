@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#0a3d2f"/>
+      <stop offset="55%" stop-color="#022c22"/>
+      <stop offset="100%" stop-color="#000812"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#34f5b6" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#34f5b6" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="40%">
+      <stop offset="0%" stop-color="#34f5b6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#34f5b6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <rect width="400" height="500" fill="url(#glow)"/>
+
+  <!-- Subtle grid -->
+  <g stroke="#34f5b6" stroke-opacity="0.06" stroke-width="1">
+    <path d="M0 100 H400 M0 200 H400 M0 300 H400 M0 400 H400"/>
+    <path d="M100 0 V500 M200 0 V500 M300 0 V500"/>
+  </g>
+
+  <!-- Silhouette -->
+  <g transform="translate(200 270)">
+    <circle r="78" fill="#0e2a23" stroke="url(#rim)" stroke-width="2"/>
+    <circle r="78" cy="-2" fill="#0a1f1a"/>
+    <ellipse cy="100" rx="120" ry="90" fill="#0a1f1a"/>
+    <ellipse cy="100" rx="120" ry="90" fill="none" stroke="url(#rim)" stroke-width="2"/>
+  </g>
+
+  <!-- Initials -->
+  <text x="200" y="290" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="300" fill="#34f5b6" letter-spacing="6">IS</text>
+
+  <!-- Tag -->
+  <text x="200" y="450" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5" letter-spacing="4">IMRAN SABIR</text>
+  <text x="200" y="470" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="9" fill="#ffffff" fill-opacity="0.3" letter-spacing="3">FRONTEND DEVELOPER</text>
+
+  <!-- Vignette frame -->
+  <rect x="0" y="0" width="400" height="500" fill="none" stroke="#34f5b6" stroke-opacity="0.2" stroke-width="1"/>
+</svg>
